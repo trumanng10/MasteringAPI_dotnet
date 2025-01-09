@@ -20,7 +20,7 @@
    ```csharp
    namespace TodoAPI;
 
-   public class ToDoItem
+   public class TodoItem
    {
     public int Id { get; set; }
     public string Name { get; set; }
