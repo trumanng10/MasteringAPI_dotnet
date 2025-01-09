@@ -15,11 +15,12 @@
 
 #### **Step 2: Model Creation**
 1. Right-click the **project name** in the Solution Explorer.
-2. Select **Add > New Item**, and name it `TodoItem.cs`.
+2. Select **Add > New Item..**, and name it `TodoItem.cs`.
 3. Define the following properties in the `TodoItem` class:
    ```csharp
+
    namespace TodoAPI
-{
+   {
     public class ToDoItem
     {
         public int Id { get; set; }
@@ -27,7 +28,7 @@
         public bool IsCompleted { get; set; }
 
     }
-}
+   }
    ```
 
 ---
