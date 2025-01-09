@@ -40,14 +40,18 @@
    - Search(Click 'Browse') for `Microsoft.EntityFrameworkCore.InMemory`.
    - Click **Install**, then accept the terms.
 2. **Create TodoDbContext**:
-   - Double Click the **project name** to verify Packages installed. Right-click the **project name**, select **Add > Class**, and name it `TodoDbContext.cs`.
+   - Double Click the **project name** to verify Packages installed. Right-click the **project name**, select **Add > New Item**, and name it `TodoDbContext.cs`.
    - Define the class as follows:
      ```csharp
      using Microsoft.EntityFrameworkCore;
 
+     namespace TodoAPI;
+       
      public class TodoDbContext : DbContext
      {
-         public TodoDbContext(DbContextOptions<TodoDbContext> options) : base(options) { }
+         public TodoDbContext(DbContextOptions<TodoDbContext> options)
+         : base(options) { }
+     
          public DbSet<TodoItem> TodoItems { get; set; }
      }
      ```
