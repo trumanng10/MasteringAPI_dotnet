@@ -37,7 +37,7 @@
 1. **Install Entity Framework Core In-Memory Database**:
    - Right-click the **project name**.
    - Select **Manage NuGet Packages**.
-   - Search for `Microsoft.EntityFrameworkCore.InMemory`.
+   - Search(Click 'Browse') for `Microsoft.EntityFrameworkCore.InMemory`.
    - Click **Install**, then accept the terms.
 2. **Create TodoDbContext**:
    - Right-click the **project name**, select **Add > Class**, and name it `TodoDbContext.cs`.
