@@ -18,16 +18,13 @@
 2. Select **Add > New Item..**, and name it `TodoItem.cs`.
 3. Define the following properties in the `TodoItem` class:
    ```csharp
+   namespace TodoAPI;
 
-   namespace TodoAPI
+   public class ToDoItem
    {
-    public class ToDoItem
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public bool IsCompleted { get; set; }
-
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public bool IsCompleted { get; set; }
    }
    ```
 
