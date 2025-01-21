@@ -1,5 +1,5 @@
 
-# **Lab 6: Setting Up a Simple .NET 8 Web API with YARP(Window)**
+# **Lab 7: Setting Up a Simple .NET 8 Web API with YARP(Window)**
 
 ---
 
