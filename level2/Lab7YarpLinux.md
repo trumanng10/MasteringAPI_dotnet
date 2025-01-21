@@ -1,4 +1,4 @@
-# **Lab 6: Setting Up a Simple .NET 8 Web API with YARP on Linux (Without NGROK)**
+# **Lab 7: Setting Up a Simple .NET 8 Web API with YARP on Linux**
 
 ---
 
