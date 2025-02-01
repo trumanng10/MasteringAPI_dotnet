@@ -1,4 +1,4 @@
-To implement external credentials in a JSON file or database for your Reverse Proxy and Auth Service project, you'll modify the existing setup by adding a mechanism to read credentials from an external source (either a JSON file or a database). Here's an updated version of your project structure with the changes and implementations:
+To implement external credentials in a JSON file or database for your Reverse Proxy and Auth Service project, you'll modify the existing setup by adding a mechanism to read credentials from an external source (either a JSON file or a database). 
 
 ### Updated Folder Structure with External Credentials
 
