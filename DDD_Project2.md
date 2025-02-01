@@ -60,25 +60,91 @@ Create or modify `appsettings.json` to configure YARP routes:
 
 ```json
 {
-  "ReverseProxy": {
-    "Routes": {
-      "loginRoute": {
-        "ClusterId": "authCluster",
-        "Match": {
-          "Path": "/login"
+    "Urls": "http://0.0.0.0:5000;https://0.0.0.0:5001",
+    "Logging": {
+        "LogLevel": {
+            "Default": "Information",
+            "Microsoft": "Warning",
+            "Yarp.ReverseProxy": "Debug", // Logs detailed information about YARP
+            "Yarp": "Debug", // General YARP logging
+            "Microsoft.AspNetCore": "Information",
+            "System.Net.Http": "Information", // Logs HTTP request details
+            "Microsoft.AspNetCore.Hosting.Diagnostics": "Information" // ASP.NET Core diagnostics
         }
-      }
     },
-    "Clusters": {
-      "authCluster": {
-        "Destinations": {
-          "authService": {
-            "Address": "http://localhost:5001"  // Replace with actual auth service URL
-          }
+    "ReverseProxy": {
+        "Routes": {
+            "minimumroute": {
+                "ClusterId": "minimumcluster",
+                "Match": {
+                    "Path": "{**catch-all}"
+                }
+            },
+            "route2": {
+                "ClusterId": "cluster2",
+                "Match": {
+                    "Path": "/something/{*any}"
+                }
+            },
+            "loginRoute": {
+                "ClusterId": "loginCluster",
+                "Match": {
+                    "Path": "/proxy/login"
+                },
+                "Transforms": [
+                    {
+                        "PathRemovePrefix": "/proxy"
+                    }
+                ]
+            },
+            "weatherforecastRoute": {
+                "ClusterId": "weatherforecastCluster",
+                "Match": {
+                    "Path": "/proxy/weatherforecast"
+                },
+                "Transforms": [
+                    {
+                        "PathRemovePrefix": "/proxy"
+                    }
+                ]
+            }
+        },
+        "Clusters": {
+            "minimumcluster": {
+                "Destinations": {
+                    "default_destination": {
+                        "Address": "https://www.google.com"
+                    }
+                }
+            },
+            "cluster2": {
+                "Destinations": {
+                    "first_destination": {
+                        "Address": "https://contoso.com"
+                    },
+                    "another_destination": {
+                        "Address": "https://bing.com"
+                    }
+                },
+                "LoadBalancingPolicy": "RoundRobin"
+            },
+            "weatherforecastCluster": {
+                "Destinations": {
+                    "local_destination": {
+                        "Address": "https://localhost:5001"
+                    }
+                }
+            },
+            "loginCluster": {
+                "Destinations": {
+                    "login_destination": {
+                        "Address": "https://localhost:5001"
+                    }
+                }
+            }
+
         }
-      }
     }
-  }
 }
 ```
 🔹 This tells YARP:  
