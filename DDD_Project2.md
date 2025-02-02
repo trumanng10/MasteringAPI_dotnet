@@ -152,37 +152,41 @@ Create or modify `appsettings.json` to configure YARP routes:
 
 ---
 
-### **4️⃣ Modify `LoginController.cs`**
-Since the reverse proxy will forward `/login` requests to an actual authentication service, we need a separate API service listening on `http://localhost:5001`.
+### **4️⃣ Modify `YourProject>Properties>launchSettings.json` **
 
-Example of `LoginController.cs` in the **auth service**:
-```csharp
-using Microsoft.AspNetCore.Mvc;
-using YourProject.Application.Services;
+POST 'https://localhost:5001/proxy/login', x-www-form-urlencoded
+with username: admin and password: admin
+The reverse proxy will forward `/login` requests to an actual authentication service, we need a separate API service listening on `http://localhost:5001`.
 
-namespace YourProject.Infrastructure.Controllers;
-
-[ApiController]
-public class LoginController : ControllerBase
+Example of `launchSettings.json` in the ****:
+```json
 {
-    private readonly AuthService _authService;
-
-    public LoginController(AuthService authService)
-    {
-        _authService = authService;
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:24937",
+      "sslPort": 44387
     }
-
-    [HttpPost("login")]
-    public async Task<IActionResult> Login()
-    {
-        var form = await Request.ReadFormAsync();
-        var username = form["username"];
-        var password = form["password"];
-
-        var redirectUrl = _authService.Login(username, password);
-        return Redirect(redirectUrl);
+  },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
-}
+  }
 ```
 💡 Now, when you **POST to `/login`**, YARP **forwards** it to `http://localhost:5001/login`.
 
