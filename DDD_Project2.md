@@ -1,3 +1,5 @@
+# Lab 10: Part 2 - Add YARP to the DDD Structured Project
+
 We originally wanted to use **YARP (Yet Another Reverse Proxy)**, but we got sidetracked into structuring the project using **DDD**. Let's now add **YARP** into the project while keeping it structured properly.
 
 ---
