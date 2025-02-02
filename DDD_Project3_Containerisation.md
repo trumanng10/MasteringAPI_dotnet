@@ -1,4 +1,4 @@
-# ***Lab 10 Part 3: step-by-step guide to containerizing and running the project on **.NET 8.0** in the **cloud** ***
+# Lab 10 Part 3: step-by-step guide to containerizing and running the project on **.NET 8.0** in the **cloud** ***
 
 ---
 
