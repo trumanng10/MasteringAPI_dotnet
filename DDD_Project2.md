@@ -3,7 +3,7 @@ We originally wanted to use **YARP (Yet Another Reverse Proxy)**, but we got sid
 ---
 
 ## **📌 Steps to Add YARP (Reverse Proxy)**
-1. Install YARP package: `dotnet add package Yarp.ReverseProxy`
+1. Install YARP package: `dotnet add package Yarp.ReverseProxy` or Right Click 'YourProject' >Manage Nuget(Visual Studio)>Install 'Yarp.ReverseProxy'
 2. Configure **YARP** to forward authentication requests
 3. Keep DDD structure while making YARP handle `/login` requests
 
