@@ -1,4 +1,4 @@
-# Lab 10 Part 3: Containerization of APPLICATION and DEPLOY in the **cloud** 
+# Lab 10 Part 3: Containerization of APPLICATION and DEPLOY in the **Cloud** 
 
 ---
 
