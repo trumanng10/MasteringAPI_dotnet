@@ -165,6 +165,15 @@ app.UseEndpoints(endpoints =>
 
 app.Run();
 ```
+## **5. Communications Among Layers and Manage Nuget**
+Note 1:
+If any of these references are missing, the namespaces won't be found. In Visual Studio, right-click on YourProject.Api > Add > Project Reference and make sure that all the necessary projects are selected.
+
+Note 2:
+In Visual Studio:
+1.	Right-click on your project (e.g., YourProject.Api) and select Manage NuGet Packages.
+2.	Under the Browse tab, search for Microsoft.AspNetCore.App and install it.
+3.	Under the Browse tab, search for Microsoft.AspNetCore.App.MVC and install it.
 
 ---
 
