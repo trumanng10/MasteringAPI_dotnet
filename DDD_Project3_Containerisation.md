@@ -129,13 +129,31 @@ docker run -p 8000:5000 -p 8001:5001 \
 ---
 
 ### **Step 6: Access the Application**
-- Open your cloud server's public IP in a browser:  
+- Open your cloud server's public IP in a browser:
+  Method: POST
+  username: admin
+  password: admin
+  method: x-www-form-urlencoded
   ```
   http://your-cloud-ip:5000
   ```
 - If HTTPS is enabled, use:
+  Method: POST
+  username: admin
+  password: admin
+  method: x-www-form-urlencoded
   ```
-  https://your-cloud-ip:5001
+  https://your-cloud-ip:5001/login
+  ```
+
+
+- TEST USING the following and observe the ERROR, TRY TO FIX IT!
+  Method: POST
+  username: admin
+  password: admin
+  method: x-www-form-urlencoded
+  ```
+  https://your-cloud-ip:5001/proxy/login
   ```
 
 ---
@@ -170,3 +188,5 @@ docker-compose up -d
 ---
 
 Now your .NET 8 project is containerized and running on the cloud.Test it using POSTMAN!
+
+
