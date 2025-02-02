@@ -171,7 +171,7 @@ If any of these references are missing, the namespaces won't be found. In Visual
 
 Note 2:
 In Visual Studio:
-1.	Right-click on your project (e.g., YourProject.Api) and select Manage NuGet Packages.
+1.	Right-click on your project (e.g., YourProject.Infrastructure) and select Manage NuGet Packages.
 2.	Under the Browse tab, search for Microsoft.AspNetCore.App and install it.
 3.	Under the Browse tab, search for Microsoft.AspNetCore.App.MVC and install it.
 
