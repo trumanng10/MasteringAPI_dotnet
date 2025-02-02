@@ -74,13 +74,53 @@ Save the file (`CTRL + X`, then `Y`, then `Enter`).
 ---
 
 ### **Step 5: Build and Run the Docker Container**
-1. **Build the Docker image**:
+**IMPORTANT NOTE**:
+---
+
+1. **Verify the Password Used for the Certificate**
+Try manually checking if your password is correct:
+
+```sh
+openssl pkcs12 -info -in ~/.aspnet/https/aspnetapp.pfx
+```
+
+It will prompt you for a password. If the password is incorrect, it will fail.
+
+---
+
+2. **Delete and Recreate the Certificate**
+If you don't remember the password, delete the existing certificate and generate a new one:
+
+```sh
+dotnet dev-certs https --clean
+dotnet dev-certs https -ep ~/.aspnet/https/aspnetapp.pfx -p NewSecurePassword
+dotnet dev-certs https --trust  # Only needed on local development machines
+```
+
+Now, use `NewSecurePassword` when running the container.
+
+---
+
+3. **Run the Docker Container Again**
+Modify your command with the updated password:
+
+```sh
+docker run -p 8000:5000 -p 8001:5001 \
+  -v ~/.aspnet/https:/root/.aspnet/https \
+  -e ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/aspnetapp.pfx \
+  -e ASPNETCORE_Kestrel__Certificates__Default__Password=NewSecurePassword \
+  my-dotnet8-app
+```
+
+
+
+4. **Build the Docker image**:
 
    ```sh
    docker build -t my-dotnet8-app .
    ```
 
-2. **Run the container**:
+5. **Run the container**:
 
    ```sh
    docker run -p 5000:5000 -p 5001:5001 my-dotnet8-app
@@ -129,4 +169,4 @@ docker-compose up -d
 
 ---
 
-Now your .NET 8 project is containerized and running on the cloud. Let me know if you need further assistance! 🚀
+Now your .NET 8 project is containerized and running on the cloud.Test it using POSTMAN!
