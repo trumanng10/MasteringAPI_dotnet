@@ -46,23 +46,23 @@ Paste the following content:
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy solution and project files
-COPY ["src/YourProject.sln", "./"]
-COPY ["src/Services/YourProject", "src/Services/YourProject"]
+# Copy the solution file and restore dependencies
+COPY src/YourProject.sln ./
+COPY src/Services ./Services
 
 # Restore dependencies
-WORKDIR /app/src/Services/YourProject
-RUN dotnet restore
+WORKDIR /app/Services/YourProject
+RUN dotnet restore YourProject.API/YourProject.API.csproj
 
-# Build and publish
-RUN dotnet publish -c Release -o /publish
+# Build and publish the API project
+RUN dotnet publish YourProject.API/YourProject.API.csproj -c Release -o /publish
 
 # Use the .NET 8 runtime for running the app
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /publish .
 
-# Expose the necessary port
+# Expose ports
 EXPOSE 5000
 EXPOSE 5001
 
