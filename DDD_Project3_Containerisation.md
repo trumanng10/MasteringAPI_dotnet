@@ -1,4 +1,4 @@
-# Lab 10 Part 3: Containerization of APPLICATION and DEPLOY in the **Cloud** 
+# Lab 10: Part 3 - Containerization and Deployment of Web API on the Cloud
 
 ---
 
