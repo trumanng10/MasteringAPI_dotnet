@@ -1,3 +1,5 @@
+# Lab 10: Part 1 - Create DotNet Project Structure using DDD Principles
+
 **.NET 8** project structured using **Domain-Driven Design (DDD)** principles:  
 
 ### **DDD Layers Implemented**  
