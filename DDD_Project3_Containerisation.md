@@ -1,4 +1,4 @@
-Here’s a step-by-step guide to containerizing and running the project on **.NET 8.0** in the **cloud**.
+### ***step-by-step guide to containerizing and running the project on **.NET 8.0** in the **cloud** ***
 
 ---
 
