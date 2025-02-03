@@ -113,7 +113,7 @@ Now, use `NewSecurePassword` when running the container.
 Modify your command with the updated password:
 
 ```sh
-docker run -p 8000:5000 -p 8001:5001 \
+docker run -p 5000:5000 -p 5001:5001 \
   -v ~/.aspnet/https:/root/.aspnet/https \
   -e ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/aspnetapp.pfx \
   -e ASPNETCORE_Kestrel__Certificates__Default__Password=NewSecurePassword \
