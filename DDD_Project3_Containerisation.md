@@ -22,7 +22,7 @@ dotnet dev-certs https --trust
 
 ---
 
-### **Step 3: Run the Application Locally (Optional)**
+### **Step 3: Run the Application Locally **
 To verify everything is working before containerization:
 
 ```sh
