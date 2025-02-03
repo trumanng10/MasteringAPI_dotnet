@@ -101,7 +101,15 @@ Now, use `NewSecurePassword` when running the container.
 
 ---
 
-3. **Run the Docker Container Again**
+
+3. **Build the Docker image**:
+
+   ```sh
+   docker build -t my-dotnet8-app .
+   ```
+
+
+4. **Run the Docker Container Again**
 Modify your command with the updated password:
 
 ```sh
@@ -114,19 +122,8 @@ docker run -p 8000:5000 -p 8001:5001 \
 
 
 
-4. **Build the Docker image**:
 
-   ```sh
-   docker build -t my-dotnet8-app .
-   ```
 
-5. **Run the container**:
-
-   ```sh
-   docker run -p 5000:5000 -p 5001:5001 my-dotnet8-app
-   ```
-
----
 
 ### **Step 6: Access the Application**
 - Open your cloud server's public IP in a browser:
