@@ -34,9 +34,9 @@ CMD ["dotnet", "MinimalApiApp.dll"]
 Build and push the image to a container registry like Docker Hub or Azure Container Registry:
 
 ```sh
-docker build -t yourdockerhubusername/minimal-dotnet .
+docker build -t <yourdockerhubusername>/minimal-dotnet .
 docker login
-docker push yourdockerhubusername/minimal-dotnet
+docker push <yourdockerhubusername>/minimal-dotnet
 ```
 
 ### **4. Create Kubernetes Deployment and Service**
