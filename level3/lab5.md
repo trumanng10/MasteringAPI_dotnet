@@ -35,6 +35,7 @@ Build and push the image to a container registry like Docker Hub or Azure Contai
 
 ```sh
 docker build -t yourdockerhubusername/minimal-dotnet .
+docker login
 docker push yourdockerhubusername/minimal-dotnet
 ```
 
