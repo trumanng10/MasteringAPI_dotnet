@@ -23,11 +23,26 @@ app.Run();
 Create a `Dockerfile` to containerize the application:
 
 ```dockerfile
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-WORKDIR /app
+# Stage 1: Build and publish the app
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy the project file and restore dependencies
+COPY MinimalApiApp.csproj ./
+RUN dotnet restore
+
+# Copy the remaining source code and publish the app
 COPY . .
+RUN dotnet publish -c Release -o /app/publish
+
+# Stage 2: Create the runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/publish .
+
+# Expose port 80 and set the entrypoint
 EXPOSE 80
-CMD ["dotnet", "MinimalApiApp.dll"]
+ENTRYPOINT ["dotnet", "MinimalApiApp.dll"]
 ```
 
 ### **3. Build and Push Docker Image**
