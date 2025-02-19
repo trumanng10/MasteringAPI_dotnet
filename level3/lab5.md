@@ -41,7 +41,7 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 # Expose port 80 and set the entrypoint
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["dotnet", "MinimalApiApp.dll"]
 ```
 
@@ -76,7 +76,7 @@ spec:
       - name: minimal-dotnet
         image: yourdockerhubusername/minimal-dotnet:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
